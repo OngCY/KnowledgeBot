@@ -1,36 +1,21 @@
-import React, { useEffect } from "react";
-import { Button } from 'react-bootstrap'
-import { useDispatch, useSelector } from "react-redux";
+import React, {useEffect } from "react";
+import { useDispatch ,useSelector} from "react-redux";
 import * as action from "../../store/actions";
 
-function BotList() {
-    const botList = useSelector(state => state.botList.items)
-    const botDetails = useSelector(state => state.botList.botDetails)
-  
-    const dispatch = useDispatch();
+function BotList(){ 
+    const report = useSelector(state => state.report.item)
+    const reportLoading = useSelector(state => state.report.loading)
+   
+    
 
-    useEffect(() => {
-        dispatch(action.getBotList());
-    }, [dispatch])
-
-    function retrieveBot(id) {
-        dispatch(action.getBotByID(id));
-    }
-
-    return (
-
-        <div>
-            <ul>
-                {botList.map(el => (
-                    <li key={el.id}><Button onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
-                ))}
-            </ul>
+        return (
+     
             <div>
-            {JSON.stringify(botDetails)} 
+               {reportLoading}
+               {report.reportTitle}
+          {report.reportContent}
         </div>
-
-        </div>
-       
+        
     );
 };
 
