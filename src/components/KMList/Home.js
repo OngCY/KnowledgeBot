@@ -16,9 +16,7 @@ export default function Home() {
           <CreateBotModal />
         </Row>
         <Row>
-          <BotList />
-          <ReportItem/>
-    
+          <ReportItem/>    
         </Row>
       </Container>
     </React.Fragment>

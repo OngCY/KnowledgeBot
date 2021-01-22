@@ -1,5 +1,6 @@
 const initialState = {
     createBotModalDisplay: false,
+    displayReportModal:false,
   };
   
 const modalReducer= function(state = initialState, action) {
@@ -14,6 +15,16 @@ const modalReducer= function(state = initialState, action) {
         return {
           ...state,
           createBotModalDisplay:true
+        };
+      case "CLOSE_DISPLAYREPORT_MODAL":
+        return {
+            ...state,
+            displayReportModal:false
+        };
+      case "SHOW_DISPLAYREPORT_MODAL":
+        return {
+            ...state,
+            displayReportModal:true
         };
       default:
         return state;

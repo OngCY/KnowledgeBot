@@ -14,9 +14,9 @@ export function getreportByID() {
       })
     
     )
-      .catch(error => {
+    .catch(error => {
 
-      });
+    });
 }
 
 export function setLoading(setting)
