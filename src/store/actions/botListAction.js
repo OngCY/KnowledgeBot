@@ -2,7 +2,8 @@ import axios from "axios";
 
 export const CREATEBOT = 'CREATEBOT';
 export const DELETEBOT = 'DELETEBOT';
-export const GETBOT = 'GETBOT';
+export const GETBOTLIST = 'GETBOTLIST';
+export const GETBOTBYID = "GETBOTBYID"
 export const SETLOADING='SETLOADING'
 
 
@@ -12,22 +13,44 @@ export function createBot()
         type: CREATEBOT
     }
 }
-
-export function getBot() {
-  const request = axios.get("https://cs-stolen-canal-angela.trycloudflare.com/bot/retrieveAll");
-  setLoading(true);
-  return dispatch =>
-    request.then(response =>
-      dispatch({
-        type: GETBOT,
-        payload: response.data,
-      })
+export const getBotList = () => async dispatch => {
     
-    )
-      .catch(error => {
+  try{
+      const res = await axios.get("https://cs-stolen-canal-angela.trycloudflare.com/bot/retrieveAll")
+      dispatch( {
+          type: GETBOTLIST,
+          payload: res.data
+      })
+  }
+  catch(e){
+    console.log(e)
+      dispatch( {
+          type: SETLOADING,
+          payload: false,
+      })
+  }
 
-      });
 }
+
+export const getBotByID = (id) => async dispatch => {
+  try{
+      const res = await axios.get("https://cs-stolen-canal-angela.trycloudflare.com/bot/retrieveById/"+id)
+   
+      dispatch( {
+          type: GETBOTBYID,
+          payload: res.data
+      })
+  }
+  catch(e){
+    console.log(e)
+      dispatch( {
+          type: SETLOADING,
+          payload: false,
+      })
+  }
+
+}
+
 
 export function setLoading(setting)
 {
