@@ -14,15 +14,8 @@ function CreateBotModal(){
    
    const dispatch = useDispatch()
 
-   function showReport(){
-    
-    dispatch(action.getreportByID());
-       
-    }
 
    function handleModalShow(){
-    
-    dispatch(action.getBot());
     dispatch(action.openDialog());
        
     }
@@ -44,12 +37,6 @@ function CreateBotModal(){
                     <FormCreate/>
                     
                 </Modal>
-                <div className="Report-Display" style={{width: '100%' }}>
-            <Button variant="primary" onClick={() => showReport()}>
-                  show Report
-                </Button>
-              
-        </div>
 
             </div>
         )

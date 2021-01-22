@@ -1,5 +1,6 @@
 const initialState = {
     items: [],
+    botDetails:{},
     loading:true
   };
   
@@ -7,13 +8,18 @@ const initialState = {
  const botListReducer=function(state = initialState, action) {
     switch (action.type) {
       case "SETLOADING":
-        console.log("abc")
         return {
           ...state,
           loading: action.payload,
         };
-      
-      case "GETBOT":
+      case "GETBOTBYID":
+        console.log(action.payload)
+          return {
+            ...state,
+            botDetails: action.payload,
+          };
+      case "GETBOTLIST":
+        console.log("sbc")
         return {
           ...state,
           items: action.payload,
