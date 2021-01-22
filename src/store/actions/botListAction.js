@@ -1,6 +1,10 @@
+import axios from "axios";
+
 export const CREATEBOT = 'CREATEBOT';
 export const DELETEBOT = 'DELETEBOT';
 export const GETBOT = 'GETBOT';
+
+
 
 export function createBot()
 {
@@ -9,11 +13,8 @@ export function createBot()
     }
 }
 
-export function getBot(params) {
-  // const request = axios.get('/api/entities-app/entity', {params});
-  const { entityId } = params;
-  /* const request = axios.get(api.GET_ENTITY + entityId);
-
+export function getBot() {
+  const request = axios.get("https://run.mocky.io/v3/1ffb8edd-fe5e-4a4d-9455-a02920ebc5b5");
   return dispatch =>
     request.then(response =>
       dispatch({
@@ -22,8 +23,8 @@ export function getBot(params) {
       })
     )
       .catch(error => {
-        dispatch(Actions.showMessage({ message: 'Unable to load the entity', variant: 'error' }));
-      }); */
+
+      });
 }
 
 
