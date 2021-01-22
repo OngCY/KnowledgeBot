@@ -3,20 +3,24 @@ import { useDispatch ,useSelector} from "react-redux";
 import * as action from "../../store/actions";
 
 function BotList(){ 
-    const report = useSelector(state => state.report.item)
-    const reportLoading = useSelector(state => state.report.loading)
+    const botList = useSelector(state => state.botList.items)
+    const botListLoading = useSelector(state => state.botList.loading)
    
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(action.getreportByID);
-    }, [])
+        dispatch(action.getBot);
+    }, [dispatch])
 
         return (
      
             <div>
-               {reportLoading}
-          {report.reportContent}
+               {botListLoading}
+            <ul>
+            {botList.map(el => (
+            <li key={el.id}>{el.id}</li>
+            ))}
+        </ul>
         </div>
         
     );
