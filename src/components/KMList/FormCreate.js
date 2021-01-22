@@ -18,8 +18,9 @@ const FormCreate = () => {
         data['endDate'] = toDate;
         let output = JSON.stringify(data);
         alert(output);
+        console.log(output);
 
-        const res = axios.post('https://httpbin.org/post', output, {
+        const res = axios.put('https://cs-stolen-canal-angela.trycloudflare.com/bot/create', output, {
           headers: {
             'Content-Type': 'application/json'
           }
