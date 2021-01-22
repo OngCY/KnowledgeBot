@@ -1,14 +1,13 @@
 import React from "react";
 import {CreateBotModal} from ".";
 import BotList from "./BotList"
-import ReportItem from "./ReportItem"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DisplayReportModal from "./DisplayReportModal";
 
 export default function Home() {
 
-  
   return (
     <React.Fragment>
       <Container fluid="md">
@@ -16,7 +15,7 @@ export default function Home() {
           <CreateBotModal />
         </Row>
         <Row>
-          <ReportItem/>    
+          <BotList/>
         </Row>
       </Container>
     </React.Fragment>

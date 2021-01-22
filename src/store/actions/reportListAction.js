@@ -3,8 +3,8 @@ import axios from "axios";
 export const GETREPORTBYID = 'GETREPORTBYID';
 export const SETLOADING='SETLOADING'
 
-export function getreportByID() {
-  const request = axios.get("https://cs-stolen-canal-angela.trycloudflare.com/report/retrieveById/1");
+export function getreportByID(id) {
+  const request = axios.get("https://cs-stolen-canal-angela.trycloudflare.com/report/retrieveById/"+id);
   setLoading(true);
   return dispatch =>
     request.then(response =>

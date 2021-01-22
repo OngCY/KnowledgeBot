@@ -1,7 +1,9 @@
 import TextField from '@material-ui/core/TextField';
+import { useSelector } from "react-redux";
 
 const ReportDisplay = () => {
-
+    
+    const reportDetails = useSelector(state => state.report.item);
 
     return (  
         <div className="Report-Display" style={{width: '100%' }}>
@@ -13,6 +15,7 @@ const ReportDisplay = () => {
                 defaultValue='id' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
+                value={reportDetails.reportDocId}
             />
             <br /><br />
             <TextField 
@@ -21,6 +24,7 @@ const ReportDisplay = () => {
                 defaultValue='date' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
+                value={reportDetails.reportDate}
             />
             <br /><br />
             <TextField 
@@ -30,6 +34,7 @@ const ReportDisplay = () => {
                 variant='filled'
                 fullWidth
                 inputProps={{ readOnly: true }}
+                value={reportDetails.taggedEntities}
             />
             <br /><br />
             <TextField 
@@ -40,6 +45,7 @@ const ReportDisplay = () => {
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
+                value={reportDetails.reportTitle}
             />
             <br />
             <TextField 
@@ -48,10 +54,11 @@ const ReportDisplay = () => {
                 defaultValue='content' 
                 variant='filled'
                 multiline
-                rows={10}
+                rows={12}
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
+                value={reportDetails.reportContent}
             />
         </div>
     );
