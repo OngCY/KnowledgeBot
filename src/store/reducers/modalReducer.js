@@ -11,7 +11,6 @@ const modalReducer= function(state = initialState, action) {
           createBotModalDisplay:false
         };
       case "SHOW_CREATE_BOT_MODAL":
-        console.log("LOL2")
         return {
           ...state,
           createBotModalDisplay:true

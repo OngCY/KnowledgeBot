@@ -7,10 +7,12 @@ import * as action from "../../store/actions";
 function CreateBotModal(){
 
    const modalState = useSelector(state => state.modals.createBotModalDisplay)
+   
    const dispatch = useDispatch()
 
    function handleModalShow(){
-      dispatch(action.openDialog());
+  
+    dispatch(action.openDialog());
        
     }
 
@@ -22,7 +24,7 @@ function CreateBotModal(){
         return(
             <div>
                 <Button variant="primary" onClick={() => handleModalShow()}>
-                  Create Bot
+                  Create Bot 
                 </Button>
                 <Modal show={modalState}  onHide={handleModalClose}>
                     <Modal.Header closeButton onClick={() => handleModalClose()}>

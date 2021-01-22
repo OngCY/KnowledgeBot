@@ -1,5 +1,6 @@
 import React from "react";
-import {CreateBotModal } from ".";
+import {CreateBotModal} from ".";
+import BotList from "./BotList"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +13,7 @@ export default function Home() {
           <CreateBotModal />
         </Row>
         <Row>
+          <BotList />
     
         </Row>
       </Container>

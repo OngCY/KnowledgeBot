@@ -14,7 +14,7 @@ export function createBot()
 }
 
 export function getBot() {
-  const request = axios.get("https://run.mocky.io/v3/1ffb8edd-fe5e-4a4d-9455-a02920ebc5b5");
+  const request = axios.get("https://cs-stolen-canal-angela.trycloudflare.com/bot/retrieveAll");
   return dispatch =>
     request.then(response =>
       dispatch({
