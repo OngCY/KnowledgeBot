@@ -1,6 +1,8 @@
 import TextField from '@material-ui/core/TextField';
 
 const ReportDisplay = () => {
+
+
     return (  
         <div className="Report-Display" style={{width: '100%' }}>
             <h2>Display Report</h2>

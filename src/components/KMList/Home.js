@@ -6,6 +6,8 @@ import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
+
+  
   return (
     <React.Fragment>
       <Container fluid="md">
@@ -14,6 +16,7 @@ export default function Home() {
         </Row>
         <Row>
           <BotList />
+        
     
         </Row>
       </Container>

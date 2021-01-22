@@ -7,11 +7,18 @@ import * as action from "../../store/actions";
 function CreateBotModal(){
 
   const botList = useSelector(state => state.botList.items)
-    
+  
+  
   
    const modalState = useSelector(state => state.modals.createBotModalDisplay)
    
    const dispatch = useDispatch()
+
+   function showReport(){
+    
+    dispatch(action.getreportByID());
+       
+    }
 
    function handleModalShow(){
     
@@ -37,6 +44,12 @@ function CreateBotModal(){
                     <FormCreate/>
                     
                 </Modal>
+                <div className="Report-Display" style={{width: '100%' }}>
+            <Button variant="primary" onClick={() => showReport()}>
+                  show Report
+                </Button>
+              
+        </div>
 
             </div>
         )
