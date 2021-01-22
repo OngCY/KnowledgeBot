@@ -2,6 +2,23 @@ export const SHOW_CREATE_BOT_MODAL = 'SHOW_CREATE_BOT_MODAL';
 export const CLOSE_CREATE_BOT_MODAL = 'CLOSE_CREATE_BOT_MODAL';
 export const SHOW_DISPLAYREPORT_MODAL = 'SHOW_DISPLAYREPORT_MODAL';
 export const CLOSE_DISPLAYREPORT_MODAL = 'CLOSE_DISPLAYREPORT_MODAL';
+export const SHOW_DISPLAYENTITY_MODAL = 'SHOW_DISPLAYENTITY_MODAL';
+export const CLOSE_DISPLAYENTITY_MODAL = 'CLOSE_DISPLAYENTITY_MODAL';
+
+export function closeEntityDialog()
+{
+    return {
+        type: CLOSE_DISPLAYENTITY_MODAL
+    }
+}
+
+export function openEntityDialog(options)
+{
+    return {
+        type: SHOW_DISPLAYENTITY_MODAL,
+        options
+    }
+}
 
 export function closeReportDialog()
 {

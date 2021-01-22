@@ -3,7 +3,7 @@ const initialState = {
     loading: true
   };
   
- const reportListReducer=function(state = initialState, action) {
+ const entityReducer=function(state = initialState, action) {
     switch (action.type) {
       case "SETLOADING":
         return {
@@ -11,15 +11,15 @@ const initialState = {
           loading: action.payload,
         }
       
-      case "GETREPORTBYID":
+      case "GETENTITYBYNAME":
         return {
           ...state,
           item: action.payload,
         }
-      
+
       default:
         return state;
     }
   };
 
-  export default reportListReducer;
+  export default entityReducer;

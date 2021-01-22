@@ -2,22 +2,22 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector} from "react-redux";
 import * as action from "../../store/actions";
-import ReportDisplay from './ReportDisplay';
+import EntityDisplay from './EntityDisplay';
 
-function DisplayReportModal(props){
+function DisplayEntityModal(props){
 
     const botDetails = props;
     const taggedReports = props.taggedReports;
-    const modalState = useSelector(state => state.modals.displayReportModal);
+    const modalState = useSelector(state => state.modals.displayEntityModal);
     const dispatch = useDispatch();
 
-    function handleModalShow(id){
-      dispatch(action.getreportByID(id));
-      dispatch(action.openReportDialog());     
+    function handleModalShow(name){
+      dispatch(action.getEntityByName(name));
+      dispatch(action.openEntityDialog());     
     }
 
     function handleModalClose(){
-      dispatch(action.closeReportDialog());
+      dispatch(action.closeEntityDialog());
     }
 
     return(
@@ -28,13 +28,13 @@ function DisplayReportModal(props){
           ))}
           <Modal show={modalState} onHide={handleModalClose}>
             <Modal.Header closeButton onClick={() => handleModalClose()}>
-            <Modal.Title>Display Report</Modal.Title>
+            <Modal.Title>Display Entity</Modal.Title>
             </Modal.Header>
-            <ReportDisplay/>
+            <EntityDisplay/>
           </Modal>         
         </ul>             
       </div>
     )
 }
     
-export default DisplayReportModal;
+export default DisplayEntityModal;

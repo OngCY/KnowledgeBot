@@ -9,6 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const EntityDisplay = () => {
+    
+    const entityDetails = useSelector(state => state.entity.item);
+    
     const StyledTableCell = withStyles((theme) => ({
         head: {
           backgroundColor: theme.palette.common.black,

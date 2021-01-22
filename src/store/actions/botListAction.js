@@ -6,7 +6,6 @@ export const GETBOTLIST = 'GETBOTLIST';
 export const GETBOTBYID = "GETBOTBYID"
 export const SETLOADING='SETLOADING'
 
-
 export function createBot()
 {
     return {
