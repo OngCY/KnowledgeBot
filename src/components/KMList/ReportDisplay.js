@@ -1,9 +1,10 @@
 import TextField from '@material-ui/core/TextField';
 import { useSelector } from "react-redux";
 
-const ReportDisplay = () => {
+const ReportDisplay = (prop) => {
     
-    const reportDetails = useSelector(state => state.report.item);
+    const report = prop;
+    //const reportDetails = useSelector(state => state.report.item);
 
     return (  
         <div className="Report-Display" style={{width: '100%' }}>
@@ -15,7 +16,7 @@ const ReportDisplay = () => {
                 defaultValue='id' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                value={reportDetails.reportDocId}
+                value={report.reportDocId}
             />
             <br /><br />
             <TextField 
@@ -24,7 +25,7 @@ const ReportDisplay = () => {
                 defaultValue='date' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                value={reportDetails.reportDate}
+                //value={reportDetails.reportDate}
             />
             <br /><br />
             <TextField 
@@ -34,7 +35,7 @@ const ReportDisplay = () => {
                 variant='filled'
                 fullWidth
                 inputProps={{ readOnly: true }}
-                value={reportDetails.taggedEntities}
+                //value={reportDetails.taggedEntities}
             />
             <br /><br />
             <TextField 
@@ -45,7 +46,7 @@ const ReportDisplay = () => {
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
-                value={reportDetails.reportTitle}
+                //value={reportDetails.reportTitle}
             />
             <br />
             <TextField 
@@ -58,7 +59,7 @@ const ReportDisplay = () => {
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
-                value={reportDetails.reportContent}
+               // value={reportDetails.reportContent}
             />
         </div>
     );

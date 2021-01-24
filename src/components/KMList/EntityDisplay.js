@@ -37,16 +37,8 @@ const EntityDisplay = () => {
     });
       
     const classes = useStyles;
-   
-    function createData(title) {
-        return { title };
-      }
-      
-    const rows = [
-        createData('Report 1'),
-        createData('Report 2'),
-        createData('Report 3')
-    ];
+         
+    const rows = entityDetails.taggedReports;
 
     return (  
         <div className="Entity-Display" style={{width: '100%' }}>
@@ -58,6 +50,7 @@ const EntityDisplay = () => {
                 defaultValue='entity' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
+                value={entityDetails.entityName}
             />
             <br /><br />
             <TextField 
@@ -66,6 +59,7 @@ const EntityDisplay = () => {
                 defaultValue='gender' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
+                value={entityDetails.entityGender}
             />
             <br /><br />
             <TextField 
@@ -74,6 +68,7 @@ const EntityDisplay = () => {
                 defaultValue='country' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
+                value={entityDetails.entityCountry}
             />
             <br /><br />
             <TextField 
@@ -82,6 +77,7 @@ const EntityDisplay = () => {
                 defaultValue='appt' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
+                value={entityDetails.entityAppointment}
             />
             <br /><br />
             <TableContainer component={Paper}>
@@ -93,7 +89,7 @@ const EntityDisplay = () => {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <StyledTableRow key={row.title}>
+                        <StyledTableRow key={row.id}>
                             <StyledTableCell component="th" scope="row">
                                 {row.title}
                             </StyledTableCell>

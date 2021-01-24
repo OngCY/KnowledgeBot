@@ -2,17 +2,16 @@ import React, { useEffect } from "react";
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../store/actions";
-import DisplayReportModel from "./DisplayReportModal";
+import DisplayReportModal from "./DisplayReportModal";
 
 function BotList() {
     const botList = useSelector(state => state.botList.items)
-    const botDetails = useSelector(state => state.botList.botDetails)
-    //const reportDetails = useSelector(state => state.report.item);
-
+    const bot = useSelector(state => state.botList.botDetails)
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(action.getBotList());
+        console.log(JSON.stringify(botList));
     }, [dispatch])
 
     function retrieveBot(id) {
@@ -27,12 +26,15 @@ function BotList() {
         <div>
             <ul>
                 {botList.map(el => (
-                    <li key={el.id}><Button onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
-                ))}
+                    <li><Button onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
+                ))}    
             </ul>
-            <div>
-                <DisplayReportModel bot={botDetails} />            
-            </div> 
+            <ul>
+                {bot && bot.taggedReports && bot.taggedReports.map(id => (
+                    <li><DisplayReportModal prop={id}/></li>
+                ))}
+                </ul>
+           {/*{JSON.stringify(botDetails)}*/}
         </div>    
     );
 };

@@ -6,7 +6,7 @@ import * as action from "../../store/actions";
 
 function CreateBotModal(){
   
-  const botList = useSelector(state => state.botList.items)
+  //const botList = useSelector(state => state.botList.items)
   const modalState = useSelector(state => state.modals.createBotModalDisplay)
   const dispatch = useDispatch()
 
