@@ -4,7 +4,7 @@ export const GETREPORTBYID = 'GETREPORTBYID';
 export const SETLOADING='SETLOADING';
 
 export function getreportByID(id) {
-  const request = axios.get("https://obviously-digital-worship-engaged.trycloudflare.com/"+id);
+  const request = axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/report/retrieveById/"+id);
   setLoading(true);
   return dispatch =>
     request.then(response =>

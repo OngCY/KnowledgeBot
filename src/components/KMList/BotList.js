@@ -11,7 +11,7 @@ function BotList() {
 
     useEffect(() => {
         dispatch(action.getBotList());
-        console.log(JSON.stringify(botList));
+        //console.log(JSON.stringify(botList));
     }, [dispatch])
 
     function retrieveBot(id) {

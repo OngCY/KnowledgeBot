@@ -14,7 +14,6 @@ function DisplayReportModal(id){
     function handleModalShow(id){
       dispatch(action.getreportByID(id));
       dispatch(action.openReportDialog()); 
-      console.log("id: " + reportId);
     }
 
     function handleModalClose(){
@@ -24,11 +23,11 @@ function DisplayReportModal(id){
     return(
       <div> 
         <Button onClick={() => handleModalShow(reportId)}>{JSON.stringify(reportId)}</Button>
-        <Modal show={modalState} onHide={handleModalClose}>
+        <Modal style={{width: '100%' }} show={modalState} onHide={handleModalClose}>
           <Modal.Header closeButton onClick={() => handleModalClose()}>
           <Modal.Title>Display Report</Modal.Title>
           </Modal.Header>
-          <ReportDisplay prop={JSON.stringify(report)}/>
+          <ReportDisplay report={report}/>
         </Modal>          
       </div>
     )

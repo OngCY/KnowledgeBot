@@ -15,7 +15,7 @@ export function createBot()
 export const getBotList = () => async dispatch => {
     
   try{
-      const res = await axios.get("https://obviously-digital-worship-engaged.trycloudflare.com/bot/retrieveAll")
+      const res = await axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/bot/retrieveAll")
       dispatch( {
           type: GETBOTLIST,
           payload: res.data
@@ -33,7 +33,7 @@ export const getBotList = () => async dispatch => {
 
 export const getBotByID = (id) => async dispatch => {
   try{
-      const res = await axios.get("https://obviously-digital-worship-engaged.trycloudflare.com/bot/retrieveById/"+id)
+      const res = await axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/bot/retrieveById/"+id)
    
       dispatch( {
           type: GETBOTBYID,

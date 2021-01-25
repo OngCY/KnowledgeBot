@@ -1,11 +1,8 @@
 import TextField from '@material-ui/core/TextField';
-import { useSelector } from "react-redux";
+import stripquotes from 'stripquotes';
 
-const ReportDisplay = (prop) => {
-    
-    const report = prop;
-    //const reportDetails = useSelector(state => state.report.item);
-
+const ReportDisplay = (report) => {
+   
     return (  
         <div className="Report-Display" style={{width: '100%' }}>
             <h2>Display Report</h2>
@@ -16,7 +13,7 @@ const ReportDisplay = (prop) => {
                 defaultValue='id' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                value={report.reportDocId}
+                value={JSON.parse(report.report.reportDocid)}
             />
             <br /><br />
             <TextField 
@@ -25,28 +22,28 @@ const ReportDisplay = (prop) => {
                 defaultValue='date' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                //value={reportDetails.reportDate}
+                value={stripquotes(JSON.stringify(report.report.reportDate))}
             />
             <br /><br />
-            <TextField 
+            <TextField
                 type='text'
                 label = 'Entities'
                 defaultValue='entities' 
                 variant='filled'
                 fullWidth
                 inputProps={{ readOnly: true }}
-                //value={reportDetails.taggedEntities}
+                value={JSON.stringify(report.report.taggedEntities)}
             />
             <br /><br />
             <TextField 
-                type='text' 
+                type='text'
                 label = 'Report Title'
-                defaultValue='title' 
+                defaultValue='title'
                 variant='filled' 
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
-                //value={reportDetails.reportTitle}
+                value={stripquotes(JSON.stringify(report.report.reportTitle))}
             />
             <br />
             <TextField 
@@ -55,11 +52,11 @@ const ReportDisplay = (prop) => {
                 defaultValue='content' 
                 variant='filled'
                 multiline
-                rows={12}
+                rows={60}
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
-               // value={reportDetails.reportContent}
+                value={stripquotes(JSON.stringify(report.report.reportContent))}
             />
         </div>
     );

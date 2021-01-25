@@ -4,7 +4,7 @@ export const GETENTITYBYNAME = 'GETENTITYBYNAME';
 export const SETLOADING='SETLOADING';
 
 export function getEntityByName(name) {
-  const request = axios.get("https://cs-stolen-canal-angela.trycloudflare.com/entity/retrieveByEntityName/"+name);
+  const request = axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/entity/retrieveByEntityName/"+name);
   setLoading(true);
   return dispatch =>
     request.then(response =>
