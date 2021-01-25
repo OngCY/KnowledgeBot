@@ -20,13 +20,14 @@ function CreateBotModal(){
 
   return(
             <div>
-                <Button variant="primary" onClick={() => handleModalShow()}>Create Bot </Button>
+                {/*<Button variant="primary" onClick={() => handleModalShow()}>Create Bot </Button>
                 <Modal show={modalState}  onHide={handleModalClose}>
                     <Modal.Header closeButton onClick={() => handleModalClose()}>
                     <Modal.Title>Create Bot</Modal.Title>
                     </Modal.Header>
                     <FormCreate/>                  
-                </Modal>
+                </Modal>*/}
+                <FormCreate/>
             </div>
   );
 }
