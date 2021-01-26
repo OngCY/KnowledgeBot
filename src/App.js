@@ -4,6 +4,8 @@ import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/KMList/Home";
 import { CreateBotModal } from "./components/KMList";
+import DisplayReportModal from "./components/KMList/DisplayReportModal";
+import ReportDisplay from "./components/KMList/ReportDisplay";
 
 export default function App() {
   return (
@@ -15,6 +17,9 @@ export default function App() {
           </Route>
           <Route exact path="/createBot">
             <CreateBotModal />
+          </Route>
+          <Route exact path="/displayReport">
+            <ReportDisplay />
           </Route>
         </Switch>
       </div>

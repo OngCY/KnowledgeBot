@@ -33,7 +33,7 @@ function BotList() {
                 {bot && bot.taggedReports && bot.taggedReports.map(id => (
                     <li><DisplayReportModal prop={id}/></li>
                 ))}
-                </ul>
+            </ul>
            {/*{JSON.stringify(botDetails)}*/}
         </div>    
     );
