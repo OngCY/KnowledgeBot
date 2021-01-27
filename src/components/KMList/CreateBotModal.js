@@ -1,22 +1,22 @@
 import React from 'react'
-import { Button,Modal } from 'react-bootstrap'
-import FormCreate from './FormCreate'
-import { useDispatch ,useSelector} from "react-redux";
-import * as action from "../../store/actions";
+//import { Button,Modal } from 'react-bootstrap'
+import CreateBot from './CreateBot'
+//import { useDispatch ,useSelector} from "react-redux";
+//import * as action from "../../store/actions";
 
 function CreateBotModal(){
   
   //const botList = useSelector(state => state.botList.items)
-  const modalState = useSelector(state => state.modals.createBotModalDisplay)
-  const dispatch = useDispatch()
+  //const modalState = useSelector(state => state.modals.createBotModalDisplay)
+  //const dispatch = useDispatch()
 
-  function handleModalShow(){
+  /*function handleModalShow(){
       dispatch(action.openDialog());      
   }
 
   function handleModalClose(){
       dispatch(action.closeDialog());  
-  }
+  }*/
 
   return(
             <div>
@@ -25,9 +25,9 @@ function CreateBotModal(){
                     <Modal.Header closeButton onClick={() => handleModalClose()}>
                     <Modal.Title>Create Bot</Modal.Title>
                     </Modal.Header>
-                    <FormCreate/>                  
+                    <CreateBot/>                  
                 </Modal>*/}
-                <FormCreate/>
+                <CreateBot/>
             </div>
   );
 }

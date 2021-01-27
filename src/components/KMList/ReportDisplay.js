@@ -1,16 +1,22 @@
 import { useDispatch, useSelector} from "react-redux";
-import { useLocation } from 'react-router';
+import { useParams } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-import stripquotes from 'stripquotes';
+//import stripquotes from 'stripquotes';
 
-const ReportDisplay = (props) => {
-    const location = useLocation();
-    console.log("Receiving: " + JSON.stringify(props.location.state));
+const ReportDisplay = () => {
+
+    const { id } = useParams();
+    const report = useSelector(state => state.report.item);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(action.getreportByID(id));
+    }, [dispatch])
+
     return (  
         <div className="Report-Display" style={{width: '100%' }}>
             <h2>Display Report</h2>
             <br />
-
             <TextField 
                 type='text'
                 label = 'Report ID'

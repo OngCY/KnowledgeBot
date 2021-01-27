@@ -1,5 +1,5 @@
 import React from "react";
-import {CreateBotModal} from ".";
+//import {CreateBotModal} from ".";
 import BotList from "./BotList"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

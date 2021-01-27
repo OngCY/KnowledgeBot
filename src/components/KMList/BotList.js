@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../store/actions";
-import DisplayReportModal from "./DisplayReportModal";
+import ReportIdList from "./ReportIdList";
 
 function BotList() {
     const botList = useSelector(state => state.botList.items)
@@ -31,7 +31,7 @@ function BotList() {
             </ul>
             <ul>
                 {bot && bot.taggedReports && bot.taggedReports.map(id => (
-                    <li><DisplayReportModal prop={id}/></li>
+                    <li><ReportIdList prop={id}/></li>
                 ))}
             </ul>
            {/*{JSON.stringify(botDetails)}*/}

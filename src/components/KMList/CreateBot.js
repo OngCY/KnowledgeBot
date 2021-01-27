@@ -8,7 +8,7 @@ import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios';
 
-const FormCreate = () => {
+const CreateBot = () => {
     const { register, handleSubmit } = useForm();
     const [fromDate, setFromDate] = useState(new Date());
     const [toDate, setToDate] = useState(new Date());
@@ -66,4 +66,4 @@ const FormCreate = () => {
     );
   }
 
-  export default FormCreate;
+  export default CreateBot;

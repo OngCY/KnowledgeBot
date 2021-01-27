@@ -4,7 +4,6 @@ import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/KMList/Home";
 import { CreateBotModal } from "./components/KMList";
-import DisplayReportModal from "./components/KMList/DisplayReportModal";
 import ReportDisplay from "./components/KMList/ReportDisplay";
 
 export default function App() {
@@ -18,7 +17,7 @@ export default function App() {
           <Route exact path="/createBot">
             <CreateBotModal />
           </Route>
-          <Route exact path="/displayReport">
+          <Route exact path="/displayReport/:id">
             <ReportDisplay />
           </Route>
         </Switch>
