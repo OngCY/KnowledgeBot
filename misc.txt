@@ -1,0 +1,14 @@
+<li key={el.id}><Button onClick={() => retrieveReport(el)}>{JSON.stringify(el)}</Button></li>
+<Button variant="primary" onClick={() => handleModalShow()}>Display Report</Button>
+<li key={el.id}><Button onClick={() => retrieveReport(el)}>{JSON.stringify(el)}</Button></li>
+{JSON.stringify(reportDetails)}
+  
+<Button variant="primary" onClick={() => handleModalShow()}>Display Report</Button>
+<ul>
+{botList !== null && botList.map(bot => (
+   <li key={bot.id}><DisplayReportModel bot={el.reportDocid}/></li>
+))}
+</ul>  
+
+npx json-server --watch data/report.json --port 8000
+npx json-server --watch data/bot.json --port 8001

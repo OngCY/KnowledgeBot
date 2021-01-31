@@ -1,0 +1,18 @@
+{
+    "bots": [
+        {
+            "id": "1",
+            "jobName": "bot 1",
+            "taggedReports": ["2"],
+            "keyword": ["biden", "trump"],
+            "entity": ["election", "USA"]
+        },
+        {
+            "id": "2",
+            "jobName": "bot 2",
+            "taggedReports": ["1"],
+            "keyword": ["xi", "npc"],
+            "entity": ["economy", "China"]
+        }
+    ]
+}

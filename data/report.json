@@ -1,0 +1,16 @@
+{
+    "reports": [
+        {
+            "id": "1",
+            "date": "2021-01-01",
+            "title": "Biden Wins Election",
+            "content": "Mr. Biden’s victory amounted to a repudiation of Mr. Trump by millions of voters exhausted with his divisive conduct and chaotic administration, and was delivered by an unlikely alliance of women, people of color, old and young voters and a sliver of disaffected Republicans. Mr. Trump is only the third elected president since World War II to lose re-election, and the first in more than a quarter-century. The result also provided a history-making moment for Mr. Biden’s running mate, Senator Kamala Harris of California, who will become the first woman to serve as vice president.With his triumph, Mr. Biden, who turns 78 later this month, fulfilled his decades-long ambition in his third bid for the White House, becoming the oldest person elected president. A pillar of Washington who was first elected amid the Watergate scandal, and who prefers political consensus over combat, Mr. Biden will lead a nation and a Democratic Party that have become far more ideological since his arrival in the capital in 1973."
+        },
+        {
+            "id": "2",
+            "date": "2021-01-02",
+            "title": "Trump Loses Election",
+            "content": "It all finally caught up to him. The lies, the outrageous boasts, the disorder and disastrous management, the rants and the race-baiting, the predatory instincts and compulsion to dominate—all the things that made President Donald Trump the ringmaster of the American political circus at last compelled a majority of voters to drive him out of the tent. Few other Presidents in modern history so inflamed the nation or exposed the cracks in our democracy as Trump. In the end, Trump’s pride didn’t just precede his fall, it precipitated it. Until the final months, his campaign was managed by a novice who burned through millions of dollars. Trump thought he could wish away a deadly virus. He dismissed his legions of critics, preferring to bask in the adulation of fans. He governed as President only of his base, and he ran for re-election without pivoting toward the center. He barely articulated a policy vision for a second term. He campaigned hard, jetting to dozens of rallies on Air Force One in the final weeks of the campaign, and outperforming the expectations of many thanks to a formidable ground game, a sophisticated campaign data operation and a passionate base of support."
+        }
+    ]
+}
