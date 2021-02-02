@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import * as action from "../../store/actions";
 import ReportIdList from "./ReportIdList";
 
@@ -30,13 +31,13 @@ function BotList() {
                 ))}    
             </ul>
             <ul>
-                {bot && bot.taggedReports && bot.taggedReports.map(id => (
-                    <li><ReportIdList prop={id}/></li>
+                {bot && bot.taggedReports && bot.taggedReports.map(id=> (
+                   <li><ReportIdList props={id}/></li>
                 ))}
-            </ul>
+            </ul>           
            {/*{JSON.stringify(botDetails)}*/}
         </div>    
-    );
+    )
 };
 
 export default BotList;

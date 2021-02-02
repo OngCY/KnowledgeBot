@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import * as action from "../../store/actions";
 //import ReportDisplay from './ReportDisplay';
 
-function ReportIdList(id){
+function ReportIdList(props) {
 
-    const reportId = id.prop;
+    //const reportId = id.prop;
     //const modalState = useSelector(state => state.modals.displayReportModal);
     //const report = useSelector(state => state.report.item);
     //const dispatch = useDispatch();
@@ -27,9 +27,10 @@ function ReportIdList(id){
 
     return(
       <div>
-        <Link to={'/displayReport/${reportId}'}>
-          {JSON.stringify(reportId)}
+        <Link to={`/report/${(props.props)}`}>Report ID:
+          {JSON.stringify(props)}
         </Link>
+        
         {/*JSON.stringify(report)}*/};   
         {/*<Button onClick={() => handleModalShow(reportId)}>{JSON.stringify(reportId)}</Button>*/}
         {/*<Modal style={{width: '100%' }} show={modalState} onHide={handleModalClose}>

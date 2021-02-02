@@ -1,4 +1,6 @@
+import React, { useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
+import * as action from "../../store/actions";
 import { useParams } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 //import stripquotes from 'stripquotes';
@@ -10,6 +12,7 @@ const ReportDisplay = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+      console.log("report id: " + id);
       dispatch(action.getreportByID(id));
     }, [dispatch])
 
@@ -23,7 +26,7 @@ const ReportDisplay = () => {
                 defaultValue='id' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                //value={JSON.stringify(report.location.state)}
+                value={JSON.stringify(report)}
             />
             <br /><br />
             <TextField 

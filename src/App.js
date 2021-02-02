@@ -7,6 +7,7 @@ import { CreateBotModal } from "./components/KMList";
 import ReportDisplay from "./components/KMList/ReportDisplay";
 
 export default function App() {
+
   return (
     <Router>
       <div className="container-app">
@@ -14,11 +15,11 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/createBot">
+          <Route path="/createBot">
             <CreateBotModal />
           </Route>
-          <Route exact path="/displayReport/:id">
-            <ReportDisplay />
+          <Route path="/report/:id">
+            <ReportDisplay/>
           </Route>
         </Switch>
       </div>
