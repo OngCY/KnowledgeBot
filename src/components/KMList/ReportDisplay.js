@@ -3,7 +3,7 @@ import { useDispatch, useSelector} from "react-redux";
 import * as action from "../../store/actions";
 import { useParams } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-//import stripquotes from 'stripquotes';
+import stripquotes from 'stripquotes';
 
 const ReportDisplay = () => {
 
@@ -23,10 +23,10 @@ const ReportDisplay = () => {
             <TextField 
                 type='text'
                 label = 'Report ID'
-                defaultValue='id' 
+                defaultValue='id'
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                value={JSON.stringify(report)}
+                value={stripquotes(JSON.stringify(report.reportDocid))}
             />
             <br /><br />
             <TextField 
@@ -35,7 +35,7 @@ const ReportDisplay = () => {
                 defaultValue='date' 
                 variant='filled' 
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.report.reportDate))}
+                value={stripquotes(JSON.stringify(report.reportDate))}
             />
             <br /><br />
             <TextField
@@ -45,7 +45,7 @@ const ReportDisplay = () => {
                 variant='filled'
                 fullWidth
                 inputProps={{ readOnly: true }}
-                //value={JSON.stringify(report.report.taggedEntities)}
+                value={stripquotes(JSON.stringify(report.taggedEntities))}
             />
             <br /><br />
             <TextField 
@@ -56,7 +56,7 @@ const ReportDisplay = () => {
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.report.reportTitle))}
+                value={stripquotes(JSON.stringify(report.reportTitle))}
             />
             <br />
             <TextField 
@@ -65,11 +65,11 @@ const ReportDisplay = () => {
                 defaultValue='content' 
                 variant='filled'
                 multiline
-                rows={60}
+                rows={50}
                 fullWidth
                 margin='normal'
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.report.reportContent))}
+                value={stripquotes(JSON.stringify(report.reportContent))}
             />
         </div>
     );
