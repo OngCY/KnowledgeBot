@@ -18,58 +18,49 @@ const ReportDisplay = () => {
 
     return (  
         <div className="Report-Display" style={{width: '100%' }}>
-            <h2>Display Report</h2>
+            <h3>Display Report</h3>
             <br />
             <TextField 
                 type='text'
-                label = 'Report ID'
-                defaultValue='id'
-                variant='filled' 
+                label = 'ID'
+                variant='outlined' 
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.reportDocid))}
+                //value={stripquotes(JSON.stringify(report.reportDocid))}
             />
             <br /><br />
             <TextField 
                 type='text'
-                label = 'Report Date'
-                defaultValue='date' 
-                variant='filled' 
+                label = 'Date'
+                variant='outlined' 
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.reportDate))}
+                //value={stripquotes(JSON.stringify(report.reportDate))}
             />
             <br /><br />
             <TextField
                 type='text'
                 label = 'Entities'
-                defaultValue='entities' 
-                variant='filled'
-                fullWidth
+                variant='outlined'
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.taggedEntities))}
+                //value={stripquotes(JSON.stringify(report.taggedEntities))}
             />
             <br /><br />
             <TextField 
                 type='text'
-                label = 'Report Title'
-                defaultValue='title'
-                variant='filled' 
-                fullWidth
-                margin='normal'
+                label = 'Title'
+                variant='outlined' 
+                style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.reportTitle))}
+                //value={stripquotes(JSON.stringify(report.reportTitle))}
             />
-            <br />
+            <br /><br />
             <TextField 
                 type='text' 
-                label = 'Report Content' 
-                defaultValue='content' 
-                variant='filled'
+                label = 'Content'  
+                variant='outlined'
                 multiline
-                rows={50}
-                fullWidth
-                margin='normal'
+                style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.reportContent))}
+                //value={stripquotes(JSON.stringify(report.reportContent))}
             />
         </div>
     );

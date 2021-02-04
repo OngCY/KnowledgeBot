@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import * as action from "../../store/actions";
 import ReportIdList from "./ReportIdList";
 
@@ -12,16 +11,11 @@ function BotList() {
 
     useEffect(() => {
         dispatch(action.getBotList());
-        //console.log(JSON.stringify(botList));
     }, [dispatch])
 
     function retrieveBot(id) {
         dispatch(action.getBotByID(id));
     }
-
-    /*function retrieveReport(id) {
-        dispatch(action.getreportByID(id));
-    }*/
 
     return (
         <div>

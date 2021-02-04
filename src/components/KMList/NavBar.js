@@ -1,10 +1,16 @@
-import React from "react";
-import { Navbar } from "react-bootstrap";
-
-export default function NavBar() {
+const Navbar = () => {
   return (
-    <Navbar bg="danger" expand="sm">
-      <Navbar.Brand>KM Bot</Navbar.Brand>
-    </Navbar>
+    <nav className="navbar">
+      <h2>Knowledge Bot</h2>
+      <div className="links">
+        <a href="/create" style={{ 
+          color: 'white', 
+          backgroundColor: '#f1356d',
+          borderRadius: '8px' 
+        }}>Home</a>
+      </div>
+    </nav>
   );
 }
+ 
+export default Navbar;

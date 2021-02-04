@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 //import { Button, Modal } from 'react-bootstrap';
 //import { useDispatch, useSelector} from "react-redux";
-import { Link } from 'react-router-dom';
-import * as action from "../../store/actions";
-//import ReportDisplay from './ReportDisplay';
+//import * as action from "../../store/actions";
 
 function ReportIdList(props) {
 
@@ -14,9 +13,9 @@ function ReportIdList(props) {
 
     /*useEffect(() => {
       dispatch(action.getreportByID(reportId));
-    }, [dispatch])*/
+    }, [dispatch])
 
-    /*function handleModalShow(id){
+    function handleModalShow(id){
       dispatch(action.getreportByID(id));
       dispatch(action.openReportDialog()); 
     }
@@ -30,7 +29,7 @@ function ReportIdList(props) {
         <Link to={`/report/${(props.props)}`}>Report ID:
           {JSON.stringify(props)}
         </Link>
-        
+
         {/*JSON.stringify(report)}*/};   
         {/*<Button onClick={() => handleModalShow(reportId)}>{JSON.stringify(reportId)}</Button>*/}
         {/*<Modal style={{width: '100%' }} show={modalState} onHide={handleModalClose}>
