@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <React.Fragment>
       <Container fluid="md">
-        <Row>
+        {/*<Row>*/}
           {/*<CreateBotModal />*/}
-          <Link to="/createBot">Create Bot</Link>
-          <br/><br/>
-        </Row>
+          {/*<Link to="/createBot">Create Bot</Link>*/}
+        {/*</Row>*/}
         <Row>
+          Bot List
           <BotList/>
         </Row>
       </Container>

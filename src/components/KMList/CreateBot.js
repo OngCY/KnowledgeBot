@@ -43,7 +43,7 @@ const CreateBot = () => {
      
     return (
       <div className="Form-Create">
-        <h2>Create New Bot</h2>
+        <h3>Create New Bot</h3>
         <br />
         <Form onSubmit={handleSubmit(onSubmit)}> 
             <TextField inputRef={register} name="jobName" placeholder="Job Name" variant="outlined"/>
