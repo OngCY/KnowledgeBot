@@ -25,6 +25,9 @@ export default function App() {
           <Route path="/report/:id">
             <ReportDisplay/>
           </Route>
+          <Route path="/entity/:name">
+            <EntityDisplay/>
+          </Route>
         </Switch>
       </div>
     </Router>

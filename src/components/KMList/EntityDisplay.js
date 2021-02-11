@@ -1,54 +1,18 @@
 import TextField from '@material-ui/core/TextField';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 const EntityDisplay = () => {
     
     const entityDetails = useSelector(state => state.entity.item);
-    
-    const StyledTableCell = withStyles((theme) => ({
-        head: {
-          backgroundColor: theme.palette.common.black,
-          color: theme.palette.common.white,
-        },
-        body: {
-          fontSize: 14,
-        },
-    }))(TableCell);
-
-    const StyledTableRow = withStyles((theme) => ({
-        root: {
-          '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.action.hover,
-          },
-        },
-    }))(TableRow);
-    
-    const useStyles = makeStyles({
-        table: {
-          minWidth: 700,
-        },
-    });
-      
-    const classes = useStyles;
-         
-    const rows = entityDetails.taggedReports;
+    const reports = entityDetails.taggedReports;
 
     return (  
         <div className="Entity-Display" style={{width: '100%' }}>
-            <h2>Display Entity</h2>
+            <h3>Display Entity</h3>
             <br />
             <TextField 
                 type='text'
-                label = 'Entity Name'
-                defaultValue='entity' 
-                variant='filled' 
+                label = 'Name'
+                variant='outlined' 
                 inputProps={{ readOnly: true }}
                 value={entityDetails.entityName}
             />
@@ -56,8 +20,7 @@ const EntityDisplay = () => {
             <TextField 
                 type='text'
                 label = 'Gender'
-                defaultValue='gender' 
-                variant='filled' 
+                variant='outlined' 
                 inputProps={{ readOnly: true }}
                 value={entityDetails.entityGender}
             />
@@ -65,8 +28,7 @@ const EntityDisplay = () => {
             <TextField 
                 type='text'
                 label = 'Country'
-                defaultValue='country' 
-                variant='filled' 
+                variant='outlined' 
                 inputProps={{ readOnly: true }}
                 value={entityDetails.entityCountry}
             />
@@ -74,30 +36,21 @@ const EntityDisplay = () => {
             <TextField 
                 type='text'
                 label = 'Appointment'
-                defaultValue='appt' 
-                variant='filled' 
+                variant='outlined' 
                 inputProps={{ readOnly: true }}
                 value={entityDetails.entityAppointment}
             />
             <br /><br />
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        <StyledTableRow>
-                            <StyledTableCell>Tagged Reports</StyledTableCell>
-                        </StyledTableRow>
-                    </TableHead>
-                    <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.id}>
-                            <StyledTableCell component="th" scope="row">
-                                {row.title}
-                            </StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <div className="blog-list">
+                {reports.map(report => (
+                    <div className="blog-preview" key={report.id} >
+                    <Link to={`/report/${report.id}`}>
+                        <h2>{ report.title }</h2>
+                        <p>Report Date { report.date }</p>
+                    </Link>
+                     </div>
+                ))}
+            </div>
         </div>
     );
 }
