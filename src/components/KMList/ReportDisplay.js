@@ -33,7 +33,7 @@ const ReportDisplay = () => {
             <br /><br />
             <h6>Tagged Entities:</h6>
             {report.data.taggedEntities.map(entity => (
-                <Link className="tagged-entities" to={`/entity/${entity}`}>
+                <Link className="tagged-links" to={`/entity/${entity}`}>
                     { entity }
                 </Link>
             ))}

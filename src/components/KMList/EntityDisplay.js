@@ -33,7 +33,7 @@ const EntityDisplay = () => {
             <br /><br />
             <h6>Tagged Report IDs:</h6>
             {entity.data.taggedReports.map(reportid => (
-                <Link className="tagged-entities" to={`/report/${reportid}`}>
+                <Link className="tagged-links" to={`/report/${reportid}`}>
                     { reportid }
                 </Link>
             ))}

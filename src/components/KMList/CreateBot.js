@@ -10,18 +10,27 @@ import axios from 'axios';
 import * as CONSTANTS from '../../global';
 
 const CreateBot = () => {
-    const { register, handleSubmit } = useForm();
+    //const { register, handleSubmit } = useForm();
     const [fromDate, setFromDate] = useState(new Date());
     const [toDate, setToDate] = useState(new Date());
+    const [name, setName] = useState('');
+    const [keywords, setKeywords] = useState('');
+    const [entities, setEntities] = useState('');
     
-    const onSubmit = (data) => {
-        data['startDate'] = fromDate;
-        data['endDate'] = toDate;
-        data.keywords = ["water", "agreement"];
-        data.entities = [""];
-        let output = JSON.stringify(data);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let keywordsArray = keywords.split(",");
+        let entitiesArray = entities.split(",");
+        let postObject = {};
         
-        alert(output);
+        postObject['name'] = name;
+        postObject['keywords'] = keywordsArray;
+        postObject['entities'] = entitiesArray
+        postObject['startDate'] = fromDate;
+        postObject['endDate'] = toDate;
+        
+        let output = JSON.stringify(postObject);
         console.log(output);
 
         const res = axios.put(CONSTANTS.GLOBAL_URL + '/bot/create1', output, {
@@ -35,13 +44,23 @@ const CreateBot = () => {
         });
     }
 
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    }
+
+    const handleKeywordsChange = (event) => {
+        setKeywords(event.target.value);
+    }
+
+    const handleEntitiesChange = (event) => {
+        setEntities(event.target.value);
+    }
+
     const handleFromDateChange = (date) => {
-        console.log(date);
         setFromDate(date);
     };
 
     const handleToDateChange = (date) => {
-        console.log(date);
         setToDate(date);
     };
      
@@ -49,12 +68,15 @@ const CreateBot = () => {
       <div className="Form-Create">
         <h3>Create New Bot</h3>
         <br />
-        <Form onSubmit={handleSubmit(onSubmit)}> 
-            <TextField inputRef={register} name="jobName" placeholder="Job Name" variant="outlined"/>
+        <form onSubmit={handleSubmit}> 
+            <TextField name="jobName" placeholder="Job Name" variant="outlined"
+            onChange={handleNameChange} />
             <br /><br />
-            <TextField inputRef={register} name="keywords" placeholder="Keywords" variant="outlined"/>
+            <TextField name="keywords" placeholder="Keywords" variant="outlined"
+            onChange={handleKeywordsChange}/>
             <br /><br />
-            <TextField inputRef={register} name="entities" placeholder="Entities" variant="outlined"/>
+            <TextField name="entities" placeholder="Entities" variant="outlined"
+            onChange={handleEntitiesChange}/>
             <br /><br />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker label="From:" value={fromDate} onChange={handleFromDateChange}/>
@@ -65,7 +87,7 @@ const CreateBot = () => {
             </MuiPickersUtilsProvider>
             <br /><br /><br />
             <Button type="submit" variant="contained" color="default">Submit</Button>
-        </Form>
+        </form>
       </div>
     );
   }
