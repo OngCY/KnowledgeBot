@@ -7,6 +7,7 @@ import {MuiPickersUtilsProvider,KeyboardDatePicker} from '@material-ui/pickers';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios';
+import * as CONSTANTS from '../../global';
 
 const CreateBot = () => {
     const { register, handleSubmit } = useForm();
@@ -20,9 +21,9 @@ const CreateBot = () => {
         alert(output);
         console.log(output);
 
-        const res = axios.put('https://cs-stolen-canal-angela.trycloudflare.com/bot/create', output, {
+        const res = axios.put(CONSTANTS.GLOBAL_URL + '/bot/create', output, {
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': CONSTANTS.APP_TYPE_JSON
           }
         }).then((response) => {
           console.log("response: " + JSON.stringify(response));

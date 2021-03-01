@@ -36,6 +36,17 @@ const ReportDisplay = () => {
                 //value={stripquotes(JSON.stringify(report.reportDate))}
             />
             <br /><br />
+             {/*
+            <div className="blog-list">
+                {reports.taggedEntities.map(entity => (
+                    <div className="blog-preview" key={entity.entityName} >
+                    <Link to={`/entity/${entity.entityName}`}>
+                        <h2>{ entity.entityName }</h2>
+                    </Link>
+                    &nbsp;
+                     </div>
+                ))}
+            </div>*/}
             <TextField
                 type='text'
                 label = 'Entities'

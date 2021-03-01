@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/KMList/Home";
 import { CreateBotModal } from "./components/KMList";
 import ReportDisplay from "./components/KMList/ReportDisplay";
+import EntityDisplay from "./components/KMList/EntityDisplay";
 import NavBar from "./components/KMList/NavBar";
 
 export default function App() {
