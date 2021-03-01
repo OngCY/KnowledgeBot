@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../store/actions";
 import ReportIdList from "./ReportIdList";
@@ -18,20 +18,19 @@ function BotList() {
     }
 
     return (
-        <div>
-            <ul>
-                {botList.map(el => (
-                    <li><Button onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
-                ))}    
-            </ul>
-            <ul>
-                {bot && bot.taggedReports && bot.taggedReports.map(id=> (
-                   <li><ReportIdList props={id}/></li>
-                ))}
-            </ul>           
-           {/*{JSON.stringify(botDetails)}*/}
-        </div>    
-    )
-};
+      <div>
+      <ul>
+          {botList.map(el => (
+              <li><Button onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
+          ))}    
+      </ul>
+      <ul>
+          {bot && bot.taggedReports && bot.taggedReports.map(id=> (
+             <li><ReportIdList reportId={id}/></li>
+          ))}
+      </ul>                     
+      </div> 
+    );
+}
 
 export default BotList;

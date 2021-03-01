@@ -17,11 +17,14 @@ const CreateBot = () => {
     const onSubmit = (data) => {
         data['startDate'] = fromDate;
         data['endDate'] = toDate;
+        data.keywords = ["water", "agreement"];
+        data.entities = [""];
         let output = JSON.stringify(data);
+        
         alert(output);
         console.log(output);
 
-        const res = axios.put(CONSTANTS.GLOBAL_URL + '/bot/create', output, {
+        const res = axios.put(CONSTANTS.GLOBAL_URL + '/bot/create1', output, {
           headers: {
             'Content-Type': CONSTANTS.APP_TYPE_JSON
           }
@@ -49,9 +52,9 @@ const CreateBot = () => {
         <Form onSubmit={handleSubmit(onSubmit)}> 
             <TextField inputRef={register} name="jobName" placeholder="Job Name" variant="outlined"/>
             <br /><br />
-            <TextField inputRef={register} name="keyword" placeholder="Keyword" variant="outlined"/>
+            <TextField inputRef={register} name="keywords" placeholder="Keywords" variant="outlined"/>
             <br /><br />
-            <TextField inputRef={register} name="entity" placeholder="Entities" variant="outlined"/>
+            <TextField inputRef={register} name="entities" placeholder="Entities" variant="outlined"/>
             <br /><br />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker label="From:" value={fromDate} onChange={handleFromDateChange}/>

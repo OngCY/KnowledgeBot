@@ -1,67 +1,67 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import * as action from "../../store/actions";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-import stripquotes from 'stripquotes';
+import stripquotes from "stripquotes";
+import axios from 'axios';
+import * as CONSTANTS from '../../global';
 
 const ReportDisplay = () => {
 
     const { id } = useParams();
-    const report = useSelector(state => state.report.item);
+    //const reportredux = useSelector(state => state.report.item);
     const dispatch = useDispatch();
+    const [report, setReport] = useState(null);
 
     useEffect(() => {
-      console.log("report id: " + id);
-      dispatch(action.getreportByID(id));
+      console.log("report id: " + id);     
+      //dispatch(action.getreportByID(id));
+      axios.get(CONSTANTS.GLOBAL_URL + "/report/retrieveById/" + id)
+      .then((response) => {
+        console.log("response: " + JSON.stringify(response));
+        setReport(response);
+      }, (error) => {
+        console.log("error: " + JSON.stringify(error));
+      });
     }, [dispatch])
 
-    return (  
+    return (
+        report !== null ? (
         <div className="Report-Display" style={{width: '100%' }}>
             <h3>Display Report</h3>
-            <br />
+            <br /><br />
+            <h6>Tagged Entities:</h6>
+            {report.data.taggedEntities.map(entity => (
+                <Link className="tagged-entities" to={`/entity/${entity}`}>
+                    { entity }
+                </Link>
+            ))}
+            <br /><br /><br />
             <TextField 
                 type='text'
                 label = 'ID'
                 variant='outlined' 
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.reportDocid))}
+                value={stripquotes(JSON.stringify(report.data.reportDocid))}
             />
             <br /><br />
             <TextField 
                 type='text'
                 label = 'Date'
                 variant='outlined' 
+                style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.reportDate))}
+                value={stripquotes(JSON.stringify(report.data.reportDate))}
             />
-            <br /><br />
-             {/*
-            <div className="blog-list">
-                {reports.taggedEntities.map(entity => (
-                    <div className="blog-preview" key={entity.entityName} >
-                    <Link to={`/entity/${entity.entityName}`}>
-                        <h2>{ entity.entityName }</h2>
-                    </Link>
-                    &nbsp;
-                     </div>
-                ))}
-            </div>*/}
-            <TextField
-                type='text'
-                label = 'Entities'
-                variant='outlined'
-                inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.taggedEntities))}
-            />
-            <br /><br />
+            <br /><br />                       
             <TextField 
                 type='text'
                 label = 'Title'
                 variant='outlined' 
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.reportTitle))}
+                value={stripquotes(JSON.stringify(report.data.reportTitle))}
             />
             <br /><br />
             <TextField 
@@ -71,9 +71,12 @@ const ReportDisplay = () => {
                 multiline
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                //value={stripquotes(JSON.stringify(report.reportContent))}
+                value={stripquotes(JSON.stringify(report.data.reportContent)).replace(/\r?\n|\r/g, " ")}
             />
         </div>
+        ) : (
+           <div>Loading...</div> 
+        )
     );
 }
  

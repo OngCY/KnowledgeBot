@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 //import { useDispatch, useSelector} from "react-redux";
 //import * as action from "../../store/actions";
 
-function ReportIdList(props) {
+const ReportIdList = (props) => {
 
     //const reportId = id.prop;
     //const modalState = useSelector(state => state.modals.displayReportModal);
@@ -26,8 +26,8 @@ function ReportIdList(props) {
 
     return(
       <div>
-        <Link to={`/report/${(props.props)}`}>Report ID:
-          {JSON.stringify(props)}
+        <Link to={`/report/${(props.reportId)}`}>Report ID:
+          {JSON.stringify(props.reportId)}
         </Link>
 
         {/*JSON.stringify(report)}*/};   
