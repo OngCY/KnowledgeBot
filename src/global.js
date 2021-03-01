@@ -1,0 +1,1 @@
+export const GLOBAL_URL = 'https://rights-gray-joke-goes.trycloudflare.com';

@@ -1,10 +1,11 @@
 import axios from "axios";
+import * as CONSTANTS from '../../global';
 
 export const GETENTITYBYNAME = 'GETENTITYBYNAME';
 export const SETLOADING='SETLOADING';
 
 export function getEntityByName(name) {
-  const request = axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/entity/retrieveByEntityName/"+name);
+  const request = axios.get(CONSTANTS.GLOBAL_URL + "/entity/retrieveByEntityName/" + name);
   setLoading(true);
   return dispatch =>
     request.then(response =>

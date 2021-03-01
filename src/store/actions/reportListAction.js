@@ -1,10 +1,11 @@
 import axios from "axios";
+import * as CONSTANTS from '../../global';
 
 export const GETREPORTBYID = 'GETREPORTBYID';
 export const SETLOADING='SETLOADING';
 
 export function getreportByID(id) {
-  const request = axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/report/retrieveById/"+id);
+  const request = axios.get(CONSTANTS.GLOBAL_URL + "/report/retrieveById/" + id);
   setLoading(true);
   return dispatch =>
     request.then(response =>

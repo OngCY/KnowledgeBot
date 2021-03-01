@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as CONSTANTS from '../../global';
 
 export const CREATEBOT = 'CREATEBOT';
 export const DELETEBOT = 'DELETEBOT';
@@ -15,7 +16,7 @@ export function createBot()
 export const getBotList = () => async dispatch => {
     
   try{
-      const res = await axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/bot/retrieveAll")
+      const res = await axios.get(CONSTANTS.GLOBAL_URL + "/bot/retrieveAll")
       dispatch( {
           type: GETBOTLIST,
           payload: res.data
@@ -33,7 +34,7 @@ export const getBotList = () => async dispatch => {
 
 export const getBotByID = (id) => async dispatch => {
   try{
-      const res = await axios.get("https://seminar-cj-acceptable-economies.trycloudflare.com/bot/retrieveById/"+id)
+      const res = await axios.get(CONSTANTS.GLOBAL_URL + "/bot/retrieveById/" + id)
    
       dispatch( {
           type: GETBOTBYID,
