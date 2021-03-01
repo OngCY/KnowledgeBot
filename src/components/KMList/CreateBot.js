@@ -72,12 +72,12 @@ const CreateBot = () => {
             <TextField name="jobName" placeholder="Job Name" variant="outlined"
             onChange={handleNameChange} />
             <br /><br />
-            <TextField name="keywords" placeholder="Keywords" variant="outlined"
+            <TextField name="keywords" placeholder="Keywords seperated by ," variant="outlined"
             onChange={handleKeywordsChange}/>
             <br /><br />
-            <TextField name="entities" placeholder="Entities" variant="outlined"
+            <TextField name="entities" placeholder="Entities seperated by ," variant="outlined"
             onChange={handleEntitiesChange}/>
-            <br /><br />
+            <br /><br /><br />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker label="From:" value={fromDate} onChange={handleFromDateChange}/>
             </MuiPickersUtilsProvider>
