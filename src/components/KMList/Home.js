@@ -16,7 +16,7 @@ export default function Home() {
           {/*<Link to="/createBot">Create Bot</Link>*/}
         {/*</Row>*/}
         <Row>
-          Bot List
+          
           <BotList/>
         </Row>
       </Container>

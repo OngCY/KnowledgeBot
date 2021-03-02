@@ -103,6 +103,25 @@
   cursor: pointer;
 }
 
+/* Knowledge Bot*/
 .tagged-links {
   margin-right: 15px;
+}
+
+.list-bots {
+  margin: 10px;
+}
+
+.summary-switch {
+  margin-right: 5px;
+}
+
+.bullets-left {
+  /* float:right; */
+  text-align: left;
+  list-style-type: circle;
+}
+
+.bot-list {
+ direction: ltl;
 }
