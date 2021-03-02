@@ -13,20 +13,17 @@ const CreateBot = () => {
     //const { register, handleSubmit } = useForm();
     const [fromDate, setFromDate] = useState(new Date());
     const [toDate, setToDate] = useState(new Date());
-    const [name, setName] = useState('');
+    const [jobName, setJobName] = useState('');
     const [keywords, setKeywords] = useState('');
-    const [entities, setEntities] = useState('');
-    
+   
     const handleSubmit = (e) => {
         e.preventDefault();
 
         let keywordsArray = keywords.split(",");
-        let entitiesArray = entities.split(",");
         let postObject = {};
         
-        postObject['name'] = name;
+        postObject['jobName'] = jobName;
         postObject['keywords'] = keywordsArray;
-        postObject['entities'] = entitiesArray
         postObject['startDate'] = fromDate;
         postObject['endDate'] = toDate;
         
@@ -45,15 +42,11 @@ const CreateBot = () => {
     }
 
     const handleNameChange = (event) => {
-        setName(event.target.value);
+        setJobName(event.target.value);
     }
 
     const handleKeywordsChange = (event) => {
         setKeywords(event.target.value);
-    }
-
-    const handleEntitiesChange = (event) => {
-        setEntities(event.target.value);
     }
 
     const handleFromDateChange = (date) => {
@@ -74,9 +67,6 @@ const CreateBot = () => {
             <br /><br />
             <TextField name="keywords" placeholder="Keywords seperated by ," variant="outlined"
             onChange={handleKeywordsChange}/>
-            <br /><br />
-            <TextField name="entities" placeholder="Entities seperated by ," variant="outlined"
-            onChange={handleEntitiesChange}/>
             <br /><br /><br />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker label="From:" value={fromDate} onChange={handleFromDateChange}/>

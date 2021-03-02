@@ -67,7 +67,7 @@ function BotList() {
                 variant='outlined' 
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={bot && bot.eDate}
+                value={bot && bot.endDate}
                 />
                 <br /><br />
                 <label>Keywords</label>&nbsp;&nbsp;&nbsp;
