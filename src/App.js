@@ -15,7 +15,6 @@ export default function App() {
     <Router>
       <div className="container-app">
       <NavBar />
-      <br />
         <Switch>
           <Route exact path="/">
             <Home />

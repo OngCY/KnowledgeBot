@@ -29,6 +29,7 @@ const EntityDisplay = () => {
     return (  
         entity !== null ? (
         <div className="Entity-Display" style={{width: '100%' }}>
+            <br />
             <h3>{name}</h3>
             <br /><br />
             <h6>Tagged Report IDs:</h6>

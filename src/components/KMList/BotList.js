@@ -8,7 +8,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 
-
 function BotList() {
     const botList = useSelector(state => state.botList.items)
     const bot = useSelector(state => state.botList.botDetails)
@@ -32,17 +31,18 @@ function BotList() {
 
     return (
         <div className="d-flex flex-row">
-        <br/><br />
-            <div className="d-flex flex-column" style={{width: "18em"}}>
-                <h4 style={{textAlign: 'left'}}>Bot List</h4>
+            <div className="d-flex flex-column" style={{width: "18em", backgroundColor: "ghostwhite"}}>
+                <br />
+                <h4 style={{textAlign: 'center'}}>Bot List</h4>
                 <ul className='bot-list'>
                     {botList.map(el => (
                         <li className='bullets-left'><Button className="list-bots" onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
                     ))} 
-                </ul>
+                    </ul>
             </div>
+            <div className="flex-column" style={{width: "8em"}}></div>
             <div className="flex-column" style={{width: "45em"}}>             
-                <br />
+                <br /><br />
                 <label>Bot Name</label>&nbsp;&nbsp;&nbsp;
                 <TextField 
                 type='text'

@@ -29,6 +29,7 @@ const ReportDisplay = () => {
     return (
         report !== null ? (
         <div className="Report-Display" style={{width: '100%' }}>
+            <br />
             <h3>Display Report</h3>
             <br /><br />
             <h6>Tagged Entities:</h6>

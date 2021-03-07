@@ -5,3 +5,7 @@ export const DELETEBOT = 'DELETEBOT';
 export const GETBOTLIST = 'GETBOTLIST';
 export const GETBOTBYID = 'GETBOTBYID';
 export const SETLOADING='SETLOADING';
+export const BOTSUBMITMSG = 'Please go to the main page and refresh it to see the new bot. It may take up to a few minutes.';
+export const BOTSUBMITTITLE = 'New Bot Submitted!';
+export const BOTEMPTYMSG = 'Please fill up the job name and keywords';
+export const BOTEMPTYTITLE = "Empty Fields Detected"
