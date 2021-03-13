@@ -13,14 +13,16 @@ const ReportDisplay = () => {
     //const reportredux = useSelector(state => state.report.item);
     const dispatch = useDispatch();
     const [report, setReport] = useState(null);
-
+    let reportContent="";
+    
     useEffect(() => {
       console.log("report id: " + id);     
       //dispatch(action.getreportByID(id));
       axios.get(CONSTANTS.GLOBAL_URL + "/report/retrieveById/" + id)
       .then((response) => {
         console.log("response: " + JSON.stringify(response));
-        setReport(response);
+        reportContent = stripquotes(JSON.stringify(response.data.reportContent));
+        setReport(response);      
       }, (error) => {
         console.log("error: " + JSON.stringify(error));
       });
@@ -34,7 +36,7 @@ const ReportDisplay = () => {
             <br /><br />
             <h6>Tagged Entities:</h6>
             {report.data.taggedEntities.map(entity => (
-                <Link className="tagged-links" to={`/entity/${entity}`}>
+               <Link className="tagged-links" to={`/entity/${entity}`}>
                     { entity }
                 </Link>
             ))}
@@ -72,7 +74,7 @@ const ReportDisplay = () => {
                 multiline
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.data.reportContent)).replace(/\r?\n|\r/g, " ")}
+                value={reportContent}
             />
         </div>
         ) : (
