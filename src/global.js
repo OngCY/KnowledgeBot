@@ -1,4 +1,4 @@
-export const GLOBAL_URL = 'https://futures-confused-lynn-hk.trycloudflare.com';
+export const GLOBAL_URL = 'http://localhost:8080';
 export const APP_TYPE_JSON = 'application/json';
 export const CREATEBOT = 'CREATEBOT';
 export const DELETEBOT = 'DELETEBOT';

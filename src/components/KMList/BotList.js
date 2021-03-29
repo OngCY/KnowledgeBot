@@ -7,6 +7,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
+import moment from 'moment'
 
 function BotList() {
     const botList = useSelector(state => state.botList.items)
@@ -58,7 +59,7 @@ function BotList() {
                 variant='outlined'
                 style ={{width: '50%'}} 
                 inputProps={{ readOnly: true }}
-                value={bot && bot.startDate}
+                value={bot && moment(bot.startDate).format("DD/MM/YYYY")}
                 />
                 <br /><br />
                 <label>End Date</label>&nbsp;&nbsp;&nbsp;
@@ -67,7 +68,7 @@ function BotList() {
                 variant='outlined' 
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={bot && bot.endDate}
+                value={bot && moment(bot.endDate).format("DD/MM/YYYY")}
                 />
                 <br /><br />
                 <label>Keywords</label>&nbsp;&nbsp;&nbsp;

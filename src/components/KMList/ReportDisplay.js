@@ -6,6 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import stripquotes from "stripquotes";
 import axios from 'axios';
 import * as CONSTANTS from '../../global';
+import moment from 'moment'
+import ReactHtmlParser from 'react-html-parser'
 
 const ReportDisplay = () => {
 
@@ -20,9 +22,11 @@ const ReportDisplay = () => {
       //dispatch(action.getreportByID(id));
       axios.get(CONSTANTS.GLOBAL_URL + "/report/retrieveById/" + id)
       .then((response) => {
-        console.log("response: " + JSON.stringify(response));
-        reportContent = stripquotes(JSON.stringify(response.data.reportContent));
+        //reportContent = stripquotes(JSON.stringify(response.data.reportContent));
+        //console.log("report content " + reportContent);
+
         setReport(response);      
+        console.log("response: " + JSON.stringify(response));
       }, (error) => {
         console.log("error: " + JSON.stringify(error));
       });
@@ -55,7 +59,7 @@ const ReportDisplay = () => {
                 variant='outlined' 
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={stripquotes(JSON.stringify(report.data.reportDate))}
+                value={stripquotes(JSON.stringify(moment(report.data.reportDate).format("DD/MM/YYYY")))}
             />
             <br /><br />                       
             <TextField 
@@ -74,7 +78,8 @@ const ReportDisplay = () => {
                 multiline
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={reportContent}
+              //  value={stripquotes(JSON.stringify(report.data.reportContent))}
+              value = {ReactHtmlParser(report.data.reportContent)}
             />
         </div>
         ) : (
