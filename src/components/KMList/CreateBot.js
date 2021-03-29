@@ -1,6 +1,8 @@
 import { useState } from "react";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {MuiPickersUtilsProvider,KeyboardDatePicker} from '@material-ui/pickers';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -17,6 +19,11 @@ const CreateBot = () => {
     const [toDate, setToDate] = useState(new Date());
     const [jobName, setJobName] = useState('');
     const [keywords, setKeywords] = useState('');
+    const [chkState, setChkState] = useState({
+      chkBoxSummary: true,
+      chkBoxEntities: true,
+      chkBoxTopics: true
+    });
    
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,6 +35,9 @@ const CreateBot = () => {
         postObject['keywords'] = keywordsArray;
         postObject['startDate'] = fromDate;
         postObject['endDate'] = toDate;
+        postObject['chkBoxSummary'] = chkState.chkBoxSummary;
+        postObject['chkBoxEntities'] = chkState.chkBoxEntities;
+        postObject['chkBoxTopics'] = chkState.chkBoxTopics;
         
         let output = JSON.stringify(postObject);
         console.log(output);
@@ -77,6 +87,10 @@ const CreateBot = () => {
     const handleToDateChange = (date) => {
         setToDate(date);
     };
+
+    const handleChkChange = (event) => {
+      setChkState({ ...chkState, [event.target.name]: event.target.checked });
+    };
      
     return (
       <div className="Form-Create">
@@ -97,6 +111,40 @@ const CreateBot = () => {
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker label="To:" value={toDate} onChange={handleToDateChange}/>
             </MuiPickersUtilsProvider>
+            <br /><br /><br />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="chkBoxSummary"
+                  color="primary"
+                  checked={chkState.chkBoxSummary}
+                  onChange={handleChkChange}
+                />
+              }
+              label="Summary"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="chkBoxEntites"
+                  color="primary"
+                  checked={chkState.chkBoxEntities}
+                  onChange={handleChkChange}
+                />
+              }
+              label="Entities"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="chkBoxTopics"
+                  color="primary"
+                  checked={chkState.chkBoxTopics}
+                  onChange={handleChkChange}
+                />
+              }
+              label="Topics"
+            />
             <br /><br /><br />
             <Button type="submit" variant="contained" color="default">Submit</Button>
         </form>
