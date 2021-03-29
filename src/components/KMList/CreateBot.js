@@ -112,6 +112,7 @@ const CreateBot = () => {
             <KeyboardDatePicker label="To:" value={toDate} onChange={handleToDateChange}/>
             </MuiPickersUtilsProvider>
             <br /><br /><br />
+            <label>Select Services: </label>&nbsp;&nbsp;&nbsp;&nbsp;
             <FormControlLabel
               control={
                 <Checkbox
@@ -122,7 +123,7 @@ const CreateBot = () => {
                 />
               }
               label="Summary"
-            />
+            />&nbsp;
             <FormControlLabel
               control={
                 <Checkbox
@@ -133,7 +134,7 @@ const CreateBot = () => {
                 />
               }
               label="Entities"
-            />
+            />&nbsp;
             <FormControlLabel
               control={
                 <Checkbox
