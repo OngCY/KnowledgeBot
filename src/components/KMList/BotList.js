@@ -7,7 +7,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
-import moment from 'moment'
+import moment from 'moment';
+import * as CONSTANTS from '../../global';
 
 function BotList() {
     const botList = useSelector(state => state.botList.items)
@@ -15,11 +16,12 @@ function BotList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(action.getBotList());
+       dispatch(action.getBotList());
     }, [dispatch])
 
     function retrieveBot(id) {
         dispatch(action.getBotByID(id));
+        console.log(JSON.stringify(bot))
     }
 
     const [state, setState] = React.useState({
@@ -39,7 +41,7 @@ function BotList() {
                     {botList.map(el => (
                         <li className='bullets-left'><Button className="list-bots" onClick={() => retrieveBot(el.id)}>{el.jobName}</Button></li>
                     ))} 
-                    </ul>
+                </ul>
             </div>
             <div className="flex-column" style={{width: "8em"}}></div>
             <div className="flex-column" style={{width: "45em"}}>             
@@ -50,7 +52,7 @@ function BotList() {
                 variant='outlined' 
                 style ={{width: '50%'}}
                 inputProps={{ readOnly: true }}
-                value={bot && bot.jobName}
+                value={bot && JSON.stringify(bot.jobName)}
                 />
                 <br /><br />
                 <label>Start Date</label>&nbsp;&nbsp;&nbsp;
@@ -91,7 +93,7 @@ function BotList() {
                 </FormGroup>
                 )}
                 <div className="p-2 flex-fill">
-                    {state.checkedA==true ?(
+                    {bot && bot.chkBoxSummary (state.checkedA==true ? (
                         <TextField
                             id="standard-multiline-flexible"
                             multiline
@@ -105,26 +107,49 @@ function BotList() {
                             multiline
                             fullWidth 
                             rowsMax={30}
-                            value={bot && bot.summarisation_E}
-                        />)}
+                            value={bot && JSON.stringify(bot.summarisation_E)}
+                        />)
+                    )}
                     <br /><br />    
+                    {bot && bot.chkBoxTopics && state.checkedA == true && bot.abstractiveTopicSentences && Object.keys(bot.abstractiveTopicSentences).map((key, i) => (
+                        <p key={i}>
+                            <h6>Topic: {key}</h6>
+                            <br />
+                            {bot.abstractiveTopicSentences[key].map(sentence =>(
+                                <span>{sentence}</span>
+                            ))}
+                        </p>
+                    ))}
+                    {bot && bot.chkBoxTopics && state.checkedA != true && bot.extractiveTopicSentences && Object.keys(bot.extractiveTopicSentences).map((key, i) => (
+                        <p key={i}>
+                            <h6>Topic: {key}</h6>
+                            <br />
+                            {bot.extractiveTopicSentences[key].map(sentence => (
+                                <span>{sentence}</span>
+                            ))}
+                        </p>
+                    ))}
+                    <br /><br /> 
+                    {bot && bot.chkBoxEntities (
+                        <h6>Tagged Entities</h6> 
+                    )}
+                    {bot && bot.chkBoxEntities && bot.entities && bot.entities.map(entity => (
+                        <Link className="tagged-links" to={`/entity/${entity}`}>
+                            { entity }
+                        </Link>
+                    ))}
+                    <br /><br />
                     <h6>Tagged Reports</h6>
                     {bot && bot.taggedReports && bot.taggedReports.map(reportid=> (
                          <Link className="tagged-links" to={`/report/${reportid}`}>
                             { reportid }
                         </Link>
-                    ))}
-                    <br /><br />
-                    <h6>Tagged Entities</h6>
-                    {bot && bot.entities && bot.entities.map(entity => (
-                        <Link className="tagged-links" to={`/entity/${entity}`}>
-                            { entity }
-                        </Link>
-                    ))}                  
+                    ))}           
                 </div>
             </div>          
       </div> 
-    );
+             
+    ); 
 }
 
 export default BotList;
