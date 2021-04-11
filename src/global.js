@@ -1,5 +1,5 @@
 //export const GLOBAL_URL = 'http://localhost:8080';
-export const GLOBAL_URL = 'https://marking-champagne-hearings-ati.trycloudflare.com';
+export const GLOBAL_URL = 'https://automotive-exchange-companion-people.trycloudflare.com/';
 export const APP_TYPE_JSON = 'application/json';
 export const CREATEBOT = 'CREATEBOT';
 export const DELETEBOT = 'DELETEBOT';

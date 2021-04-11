@@ -82,7 +82,13 @@ function BotList() {
                 value={bot && bot.keywords}
                 />
                 <br /><br />
-                <h5>Summary</h5>
+                <h5>Tagged Report IDs</h5>
+                    {bot && bot.taggedReports && bot.taggedReports.map(reportid=> (
+                         <Link className="tagged-links" to={`/report/${reportid}`}>
+                            { reportid }
+                        </Link>
+                    ))}
+                <br /><br />
                 {bot && (
                 <FormGroup row>
                     <label>Extractive</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -92,29 +98,39 @@ function BotList() {
                     <label>Abstractive</label>
                 </FormGroup>
                 )}
-                <div className="p-2 flex-fill">
-                    {bot && bot.chkBoxSummary (state.checkedA==true ? (
+                <div className="p-2 flex-fill">    
+                    {bot && bot.chkBoxSummary && state.checkedA == true && (
+                        <h5>Abstractive Summary</h5>
+                    )}
+                    {bot && bot.chkBoxSummary && state.checkedA != true && (
+                        <h5>Extractive Summary</h5>
+                    )}
+                    {bot && bot.chkBoxSummary && state.checkedA == true && (
                         <TextField
                             id="standard-multiline-flexible"
                             multiline
                             fullWidth
                             rowsMax={30}
                             value={bot && bot.summarisation_A}
-                        />
-                        ):(
+                        />)
+                    }
+                    {bot && bot.chkBoxSummary && state.checkedA != true &&  (    
                         <TextField
                             id="standard-multiline-flexible"
                             multiline
                             fullWidth 
                             rowsMax={30}
-                            value={bot && JSON.stringify(bot.summarisation_E)}
+                            value={bot && bot.summarisation_E}
                         />)
-                    )}
-                    <br /><br />    
+                    }
+                    <br /><br />
+                    {bot && bot.chkBoxTopics && (
+                        <h5>Topics & Sentences</h5>
+                    )}   
                     {bot && bot.chkBoxTopics && state.checkedA == true && bot.abstractiveTopicSentences && Object.keys(bot.abstractiveTopicSentences).map((key, i) => (
                         <p key={i}>
-                            <h6>Topic: {key}</h6>
                             <br />
+                            <h6>Topics: {key}</h6>
                             {bot.abstractiveTopicSentences[key].map(sentence =>(
                                 <span>{sentence}</span>
                             ))}
@@ -122,29 +138,23 @@ function BotList() {
                     ))}
                     {bot && bot.chkBoxTopics && state.checkedA != true && bot.extractiveTopicSentences && Object.keys(bot.extractiveTopicSentences).map((key, i) => (
                         <p key={i}>
-                            <h6>Topic: {key}</h6>
                             <br />
+                            <h6>Topics: {key}</h6>
                             {bot.extractiveTopicSentences[key].map(sentence => (
                                 <span>{sentence}</span>
                             ))}
                         </p>
                     ))}
-                    <br /><br /> 
-                    {bot && bot.chkBoxEntities (
-                        <h6>Tagged Entities</h6> 
+                    <br /><br />
+                    {bot && bot.chkBoxEntities && (
+                        <h5>Tagged Entities</h5> 
                     )}
                     {bot && bot.chkBoxEntities && bot.entities && bot.entities.map(entity => (
                         <Link className="tagged-links" to={`/entity/${entity}`}>
                             { entity }
                         </Link>
                     ))}
-                    <br /><br />
-                    <h6>Tagged Reports</h6>
-                    {bot && bot.taggedReports && bot.taggedReports.map(reportid=> (
-                         <Link className="tagged-links" to={`/report/${reportid}`}>
-                            { reportid }
-                        </Link>
-                    ))}           
+                    <br />
                 </div>
             </div>          
       </div> 
