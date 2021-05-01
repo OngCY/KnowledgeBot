@@ -127,3 +127,7 @@
 .bot-list {
  direction: ltl;
 }
+
+.sentence-left {
+  text-align: left;
+}

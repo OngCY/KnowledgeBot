@@ -132,7 +132,7 @@ function BotList() {
                             <br />
                             <h6>Topics: {key}</h6>
                             {bot.abstractiveTopicSentences[key].map(sentence =>(
-                                <span>{sentence}</span>
+                                <p class="sentence-left">{sentence}</p>
                             ))}
                         </p>
                     ))}
@@ -141,7 +141,7 @@ function BotList() {
                             <br />
                             <h6>Topics: {key}</h6>
                             {bot.extractiveTopicSentences[key].map(sentence => (
-                                <span>{sentence}</span>
+                                <p class="sentence-left">{sentence}</p>
                             ))}
                         </p>
                     ))}
