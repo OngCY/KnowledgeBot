@@ -127,7 +127,7 @@ const CreateBot = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="chkBoxEntites"
+                  name="chkBoxEntities"
                   color="primary"
                   checked={chkState.chkBoxEntities}
                   onChange={handleChkChange}
